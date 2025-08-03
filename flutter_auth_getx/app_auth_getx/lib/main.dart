@@ -1,3 +1,4 @@
+import 'package:app_auth_getx/screens/auth/auth.dart';
 import 'package:app_auth_getx/screens/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -6,7 +7,7 @@ void main() {
   // runApp(const MyApp());
   runApp(const GetMaterialApp(
     debugShowCheckedModeBanner: false,
-    home: HomeScreen(),
+    home: AuthScreen(),
   ));
 }
 

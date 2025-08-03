@@ -1,3 +1,4 @@
+import 'package:app_auth_getx/screens/auth/auth.dart';
 import 'package:flutter/foundation.dart'; // for kDebugMode, kReleaseMode, kProfileMode
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -23,9 +24,22 @@ class _HomeScreenState extends State<HomeScreen> {
               onPressed: () async {
                 final SharedPreferences prefs = await preferences;
                 prefs.clear();
-                print("Logout Pressed");
-                Get.snackbar("Logout", "Would you like to logout ?");
-                // Get.offAll(HomeScreen());
+                // Get.to(AuthScreen);
+                // debugPrint("Logout Pressed");
+
+                Get.snackbar(
+                  "Logout",
+                  "Would you like to logout ?",
+                  snackPosition: SnackPosition.BOTTOM,
+                  icon: const Icon(Icons.logout_outlined),
+                  onTap: (snack) {
+                    debugPrint("Navigating to Auth Screen");
+                    Get.offAll(const AuthScreen());
+                  },
+                  // mainButton: TextButton(
+                  //     onPressed: () => Get.to(AuthScreen),
+                  //     child: const Text("Agree")),
+                );
               },
               child: const Text("Logout",
                   style: TextStyle(
